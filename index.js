@@ -14,5 +14,26 @@ const render = require("./src/page-template.js");
 // TODO: Write Code to gather information about the development team members, and render the HTML file.
 // This functions prompts manager for profile information
 Function promptManager() {
-    return inquirer.prompt
+    return inquirer.prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: 'Enter the manager\'s name:',
+        },
+        {
+            type: 'input',
+            name: 'id',
+            message: 'Enter the manager\'s id:',
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'Enter the manager\'s email:',
+        },
+        {
+            type: 'input',
+            name: 'officeNumber',
+            message: 'Enter the manager\'s office number:',
+        },
+    ]);
 }
