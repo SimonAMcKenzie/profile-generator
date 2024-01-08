@@ -12,28 +12,81 @@ const render = require("./src/page-template.js");
 
 
 // TODO: Write Code to gather information about the development team members, and render the HTML file.
-// This functions prompts manager for profile information
+
+// Prompt functions for managers, engineers and interns
 Function promptManager() {
     return inquirer.prompt([
         {
             type: 'input',
             name: 'name',
-            message: 'Enter the manager\'s name:',
+            message: 'Enter your name:',
         },
         {
             type: 'input',
             name: 'id',
-            message: 'Enter the manager\'s id:',
+            message: 'Enter your manager id:',
         },
         {
             type: 'input',
             name: 'email',
-            message: 'Enter the manager\'s email:',
+            message: 'Enter your work email:',
         },
         {
             type: 'input',
             name: 'officeNumber',
-            message: 'Enter the manager\'s office number:',
+            message: 'Enter your office number:',
         },
     ]);
 }
+
+Function promptEngineer() {
+    return inquirer.prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: 'Enter name:',
+        },
+        {
+            type: 'input',
+            name: 'id',
+            message: 'Enter engineer id:',
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'Enter work email:',
+        },
+        {
+            type: 'input',
+            name: 'officeNumber',
+            message: 'Enter GitHub username:',
+        },
+    ]);
+}
+
+Function promptIntern() {
+    return inquirer.prompt([
+        {
+            type: 'input',
+            name: 'name',
+            message: 'Enter name:',
+        },
+        {
+            type: 'input',
+            name: 'id',
+            message: 'Enter intern id:',
+        },
+        {
+            type: 'input',
+            name: 'email',
+            message: 'Enter work email:',
+        },
+        {
+            type: 'input',
+            name: 'school',
+            message: 'Enter name of school:',
+        },
+    ]);
+}
+
+
