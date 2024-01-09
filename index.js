@@ -14,7 +14,7 @@ const render = require("./src/page-template.js");
 // TODO: Write Code to gather information about the development team members, and render the HTML file.
 
 // Prompt functions for managers, engineers and interns
-Function promptManager() {
+function promptManager() {
     return inquirer.prompt([
         {
             type: 'input',
@@ -39,7 +39,7 @@ Function promptManager() {
     ]);
 }
 
-Function promptEngineer() {
+function promptEngineer() {
     return inquirer.prompt([
         {
             type: 'input',
@@ -64,7 +64,7 @@ Function promptEngineer() {
     ]);
 }
 
-Function promptIntern() {
+function promptIntern() {
     return inquirer.prompt([
         {
             type: 'input',
@@ -92,7 +92,7 @@ Function promptIntern() {
 // Initaite application function
 async function init() {
     try {
-        const teamMembers = []:
+        const teamMembers = [];
 
         // Then starts prompting for information, starting with the manager
         const managerInfo = await promptManager();
