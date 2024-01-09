@@ -89,4 +89,51 @@ Function promptIntern() {
     ]);
 }
 
+// Initaite application function
+async function init() {
+    try {
+        const teamMembers = []:
 
+        // Then starts prompting for information, starting with the manager
+        const managerInfo = await promptManager();
+        const manager = new Manager(managerInfo.name, managerInfo.id, managerInfo.email, managerInfo.officeNumber);
+        teamMembers.push(manager);
+
+        let addEmployee = true;
+
+        // Continues process to allow other roles to be added
+        while (addEmployee) {
+            const EmployeeType = await inquirer.prompt([
+                {
+                    type: 'list',
+                    name: 'type',
+                    message: 'choose the employee type you want to add:',
+                    choices: ['Engineer', 'Intern', 'Finish building the team profiles'],
+                },
+            ]);
+
+            if (EmployeeType.type === 'Engineer') {
+                const engineerInfo = await promptEngineer();
+                const engineer = New Engineer(engineerInfo.name, engineerInfo.id, engineerInfo.email, engineerInfo.github); 
+                teamMembers.push(engineer);
+            }   else if (EmployeeType,type === 'Intern') {
+                const internInfo = await promptIntern();
+                const intern = new Intern(internInfo.name, internInfo.id, internInfo.email, internInfo.school);
+                teamMembers.push(intern);
+            }   else {
+                addEmployee = false;
+            }
+        }
+
+        // Then generates html and writes it to the file
+        const html = render(teamMembers);
+        fs.writeFileSync(outputPath, html);
+
+        console.log(`Team HTML generated successfully at ${outputPath}`);
+    }   catch (err) {
+        console.error('An error occurred:', err);
+    }
+}
+
+// This starts the application
+init();
